@@ -4,10 +4,14 @@ from collection import collection
 
 app = FlaskApi(__name__)
 
-app.config["DEBUG"] = True
+app.config["DEBUG"] = True  
 
-@app.get("/")
+@app.get("/api")
 def index():
+    return jsonify({"collection": collection})
+
+@app.get("/api/books/")
+def get_all_books():
     return jsonify({"collection": collection})
 
 if __name__ == "__main__":
