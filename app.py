@@ -14,5 +14,9 @@ def index():
 def get_all_books():
     return jsonify({"collection": collection})
 
+@app.get("/api/book/<string:name>")
+def get_book_by_name(name):
+    return jsonify({"collection": collection})
+
 if __name__ == "__main__":
     app.run()
