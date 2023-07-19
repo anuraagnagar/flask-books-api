@@ -1,5 +1,4 @@
 
-
 collection = [
     {'id': 0,
      'title': 'A Fire Upon the Deep',
