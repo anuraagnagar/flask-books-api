@@ -14,9 +14,14 @@ def index():
 def get_all_books():
     return jsonify({"collection": collection})
 
-@app.get("/api/book/<string:name>")
-def get_book_by_name(name):
-    return jsonify({"collection": collection})
+@app.get("/api/book/<string:author>")
+def get_book_by_author(author):
+    books = [book for book in collection if book['author'].lower() == author.lower() ]
+
+    if not books:
+        return jsonify({"message": "We cannot find book with given author."}), 404
+    
+    return jsonify({"books": books})
 
 if __name__ == "__main__":
     app.run()
